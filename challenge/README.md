@@ -6,8 +6,6 @@ ___
 
 Bueno, esta API es un servicio para convertir una URL larga en una clave corta, que se puede usar para acceder a la URL original.
 
-#### Solución
-
 El servicio tomará cualquier url (larga), recíbalo a través de http (`POST /shorten?url={url}`) y generar una clave basada en la url hash.
 Esa clave se almacena en Redis-Cache durante una cantidad configurable de segundos.
 
