@@ -14,10 +14,9 @@ Para recuperar la URL original, el servidor recibe su solicitud (`GET /u/{HASH}`
 
 Si quieres ser redirigido usa (`GET /r/{HASH}`) que responde con `LA URL LARGA`-Encabezado que debería redirigir automáticamente a la URL original.
 ___
-#### Run
+#### Ecución de contenedores
 
-- Ejecute el comando `docker-compose up`
-
+- Ejecute el comando `docker-compose up` para contenedores de Redis.
 ___
 ### Endpoints
 - Acceso con el metodo con los siguientes resultados; 
