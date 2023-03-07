@@ -16,7 +16,7 @@ Si quieres ser redirigido usa (`GET /r/{HASH}`) que responde con `LA URL LARGA`-
 ___
 #### Ecución de contenedores
 
-- Ejecute el comando `docker-compose up` para contenedores de Redis.
+- Ejecute el comando `docker-compose up` para contenedore de Redis.
 ___
 ### Endpoints
 - Acceso con el metodo con los siguientes resultados; 
