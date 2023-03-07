@@ -19,7 +19,23 @@ ___
 #### Run
 
 - Ejecute el comando `docker-compose up`
-- Acceso con el metodo; 
-  - POST http://localhost:8081/shorten?url= "Url para realizar el hash" 
-  - GET http://localhost:8080/u/ "Hash" -> devuelve la url acortada.
-  - GET http://localhost:8080/r/ "Hash" -> Redirecciona a la URL de destino.
+
+___
+### Endpoints
+- Acceso con el metodo con los siguientes resultados; 
+
+##### 1. Acorta tu URL
+POST http://localhost:8081/shorten?url= "Url para realizar el hash" 
+- Request: `POST http://localhost:8081/shorten?url=https://github.com/RIKKIECK/ChallengeMeLi/tree/main/challenge`
+- Response: `{"Hash": "08cef150","original_url": "https://github.com/RIKKIECK/ChallengeMeLi/tree/main/challenge"}`
+
+##### 2. Recuperar la URL original
+- GET http://localhost:8080/u/ "Hash" -> devuelve la url acortada.
+- Request: `GET http://localhost:8081/u/08cef150`
+- Response: `{"original_url": "https://github.com/RIKKIECK/ChallengeMeLi/tree/main/challenge"}`
+
+##### 3. Redirigir a la URL original
+- GET http://localhost:8080/r/ "Hash" -> Redirecciona a la URL de destino.
+- Request: `GET http://localhost:8081/r/08cef150`
+- Response: `Header { Location: 'https://github.com/RIKKIECK/ChallengeMeLi/tree/main/challenge' }`
+___
