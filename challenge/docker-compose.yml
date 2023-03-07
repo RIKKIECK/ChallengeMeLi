@@ -1,15 +1,30 @@
-version: '3.7'
+version: "3.7"
 services:
-  mongodb_container:
-    image: mongo:latest
+  mongo:
+    image: "mongo:latest"
     environment:
-      MONGO_INITDB_ROOT_USERNAME:
-      MONGO_INITDB_ROOT_PASSWORD:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
     ports:
-      - 27017:27017
+      - "27017:27017"
     volumes:
-      - mongodb_data_container:/data/db
+      - .local/data:/data/db/
+    container_name: MongoMeLi
+    networks:
+      - shared-net
 
-volumes:
-  mongodb_data_container:
+  redis:
+    image: redis:6.2-alpine
+    container_name: RedisMeLi
+    restart: always
+    ports:
+      - '6379:6379'
+    environment:
+    command: redis-server --loglevel warning --requirepass melichallenge
+
+networks:
+  shared-net:
+    driver: bridge
+
+
 
