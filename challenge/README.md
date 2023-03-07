@@ -21,5 +21,5 @@ ___
 - Ejecute el comando `docker-compose up`
 - Acceso con el metodo; 
   - POST http://localhost:8081/shorten?url= "Url para realizar el hash" 
-  - GET http://localhost:8080/u/ "Hach" -> devuelve la url acortada
-  - GET http://localhost:8080/r/ "Hach" -> Redirecciona a la URL de destino
+  - GET http://localhost:8080/u/ "Hash" -> devuelve la url acortada.
+  - GET http://localhost:8080/r/ "Hash" -> Redirecciona a la URL de destino.
