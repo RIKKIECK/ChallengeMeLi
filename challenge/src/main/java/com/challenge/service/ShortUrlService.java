@@ -11,4 +11,6 @@ public interface ShortUrlService {
 
   ShortUrl shortenUrl(@NotBlank String originalUrl);
 
+  ShortUrl delOriginalUrlByKey(@NotBlank String key);
+
 }

@@ -36,4 +36,13 @@ public class ShortUrlServiceImpl implements ShortUrlService{
       shortUrl,rexp, TimeUnit.SECONDS);
     return shortUrl;
   }
+
+  @Override
+  public ShortUrl delOriginalUrlByKey(String key) {
+    redisTemplate.opsForValue().getAndDelete(key);
+    ShortUrl shortUrl = redisTemplate.opsForValue().getAndDelete(key);
+    if (shortUrl == null){
+      return null;}
+    return shortUrl;
+  }
 }
