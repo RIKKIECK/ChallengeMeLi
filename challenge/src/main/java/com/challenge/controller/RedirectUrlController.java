@@ -1,5 +1,6 @@
 package com.challenge.controller;
 
+import com.challenge.exception.NotFoundException;
 import com.challenge.service.ShortUrlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -20,6 +21,8 @@ public class RedirectUrlController {
   @GetMapping("/r/{key}")
   public ResponseEntity<String> redirectToUrl(@PathVariable String key) {
     String originalUrl = shortUrlService.getOriginalUrlByKey(key);
+    if (originalUrl == null)
+      throw new NotFoundException();
     HttpHeaders headers = new HttpHeaders();
     headers.setLocation(URI.create(originalUrl));
     return ResponseEntity.status(HttpStatus.PERMANENT_REDIRECT).headers(headers).body(originalUrl);
